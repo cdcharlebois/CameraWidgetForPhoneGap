@@ -125,7 +125,7 @@ require([
                 destinationType: Camera.DestinationType.FILE_URL,
                 correctOrientation: true,
                 sourceType: sourceType,
-                mediaType: sourceMediaType
+                mediaType: mediaType
             };
             if (this.targetWidth !== 0) params.targetWidth = this.targetWidth;
             if (this.targetHeight !== 0) params.targetHeight = this.targetHeight;
