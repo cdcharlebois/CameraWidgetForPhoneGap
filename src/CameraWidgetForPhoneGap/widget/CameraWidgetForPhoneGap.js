@@ -118,7 +118,7 @@ require([
             }
 
             var sourceType = (this.pictureSource == "camera") ? Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY;
-            var mediaType = this.mediaType === "picture" ? Camera.MediaType.PICTURE : Camera.MediaType.VIDEO;
+            var mediaType = this.mediaType === "picture" ? Camera.MediaType.PICTURE : (this.mediaType === "video" ? Camera.MediaType.VIDEO : Camera.MediaType.ALLMEDIA);
 
             var params = {
                 quality: 50,

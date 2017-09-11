@@ -79,6 +79,7 @@
             <enumerationValues>
                 <enumerationValue key="picture">Picture</enumerationValue>
                 <enumerationValue key="video">Video</enumerationValue>
+                <enumerationValue key="all">Picture and Video</enumerationValue>
             </enumerationValues>
         </property>
     </properties>
