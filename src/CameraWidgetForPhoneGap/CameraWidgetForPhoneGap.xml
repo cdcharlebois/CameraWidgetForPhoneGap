@@ -69,8 +69,16 @@
             <description>Grab image from either the camera or the phone's image gallery</description>
             <enumerationValues>
                 <enumerationValue key="camera">Camera</enumerationValue>
-                <enumerationValue key="video">Video</enumerationValue>
                 <enumerationValue key="gallery">Gallery</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="mediaType" type="enumeration" defaultValue="picture">
+            <caption>Type</caption>
+            <category>Behaviour</category>
+            <description>Choose picture or video as the source</description>
+            <enumerationValues>
+                <enumerationValue key="picture">Picture</enumerationValue>
+                <enumerationValue key="video">Video</enumerationValue>
             </enumerationValues>
         </property>
     </properties>

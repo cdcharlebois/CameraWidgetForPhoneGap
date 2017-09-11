@@ -8,5 +8,4 @@ test/.project
 *.lock
 *.bak
 .idea/
-dist/
 node_modules/

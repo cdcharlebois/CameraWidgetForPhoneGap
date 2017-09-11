@@ -117,17 +117,15 @@ require([
                 return;
             }
 
-            var sourceType = (this.pictureSource == "camera") ?
-                    Camera.PictureSourceType.CAMERA :
-                    (this.pictureSource == "video" ?
-                      Camera.PictureSourceType.VIDEO : 
-                      Camera.PictureSourceType.PHOTOLIBRARY);
+            var sourceType = (this.pictureSource == "camera") ? Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY;
+            var mediaType = this.mediaType === "picture" ? Camera.MediaType.PICTURE : Camera.MediaType.VIDEO;
 
             var params = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URL,
                 correctOrientation: true,
-                sourceType: sourceType
+                sourceType: sourceType,
+                mediaType: sourceMediaType
             };
             if (this.targetWidth !== 0) params.targetWidth = this.targetWidth;
             if (this.targetHeight !== 0) params.targetHeight = this.targetHeight;
