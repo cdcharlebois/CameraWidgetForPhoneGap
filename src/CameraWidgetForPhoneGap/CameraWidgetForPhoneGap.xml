@@ -60,7 +60,7 @@
         <property key="onchangemf" type="microflow" required="false">
             <caption>On save microflow</caption>
             <category>Behaviour</category>
-            <description>This mf is called when the object is saved. use this to commit the object when using autosave.</description> 
+            <description>This mf is called when the object is saved. use this to commit the object when using autosave.</description>
             <returnType type="Void"/>
         </property>
         <property key="pictureSource" type="enumeration" defaultValue="camera">
@@ -69,6 +69,7 @@
             <description>Grab image from either the camera or the phone's image gallery</description>
             <enumerationValues>
                 <enumerationValue key="camera">Camera</enumerationValue>
+                <enumerationValue key="video">Video</enumerationValue>
                 <enumerationValue key="gallery">Gallery</enumerationValue>
             </enumerationValues>
         </property>

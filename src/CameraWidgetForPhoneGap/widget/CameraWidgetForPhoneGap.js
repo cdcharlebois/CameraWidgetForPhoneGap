@@ -118,7 +118,11 @@ require([
             }
 
             var sourceType = (this.pictureSource == "camera") ?
-                    Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY;
+                    Camera.PictureSourceType.CAMERA :
+                    (this.pictureSource == "video" ?
+                      Camera.PictureSourceType.VIDEO : 
+                      Camera.PictureSourceType.PHOTOLIBRARY);
+
             var params = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URL,
