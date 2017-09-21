@@ -8,7 +8,7 @@ require([
 
     "use strict";
 
-    return declare("CameraWidgetForPhoneGap.widget.CameraWidgetForPhoneGap", [ _WidgetBase ], {
+    return declare("CameraWidgetForPhoneGap.widget.CameraWidgetForPhoneGap", [_WidgetBase], {
 
         buttonClass: "wx-mxwx-button-extra",
         buttonText: "activate camera",
@@ -30,7 +30,7 @@ require([
         postCreate: function() {
             domClass.add(this.domNode, "wx-CameraWidgetForPhoneGap");
 
-            var elements = [ this._setupPreview(), this._setupButton() ];
+            var elements = [this._setupPreview(), this._setupButton()];
             if (/below|right/.test(this.imageLocation)) {
                 elements.reverse();
             }
@@ -118,12 +118,13 @@ require([
             }
 
             var sourceType = (this.pictureSource == "camera") ?
-                    Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY;
+                Camera.PictureSourceType.CAMERA : Camera.PictureSourceType.PHOTOLIBRARY;
             var params = {
                 quality: 50,
                 destinationType: Camera.DestinationType.FILE_URL,
                 correctOrientation: true,
-                sourceType: sourceType
+                sourceType: sourceType,
+                cameraDirection: this.direction === "back" ? Camera.Direction.BACK : Camera.Direction.FRONT
             };
             if (this.targetWidth !== 0) params.targetWidth = this.targetWidth;
             if (this.targetHeight !== 0) params.targetHeight = this.targetHeight;
@@ -160,7 +161,7 @@ require([
                     fileEntry.file(function(blob) {
                         var fileReader = new FileReader();
                         fileReader.onload = function(e) {
-                            window.mx.data.saveDocument(guid, filename, {}, new Blob([ e.target.result ]), success, error);
+                            window.mx.data.saveDocument(guid, filename, {}, new Blob([e.target.result]), success, error);
                         };
 
                         fileReader.onerror = function(e) {
@@ -208,12 +209,12 @@ require([
 
         _autoSave: function(url) {
             this._imageUrl = url;
-            if (this._contextObj){
-                 window.mx.data.save({
-                     mxobj: this._contextObj,
-                     callback: function(){
+            if (this._contextObj) {
+                window.mx.data.save({
+                    mxobj: this._contextObj,
+                    callback: function() {
                         this._sendFile();
-                     }
+                    }
                 }, this);
             }
         },
@@ -243,7 +244,7 @@ require([
                     params: {
                         actionname: this.onchangemf,
                         applyto: "selection",
-                        guids: [ this._contextObj.getGuid() ]
+                        guids: [this._contextObj.getGuid()]
                     },
                     callback: function(objs) {
                         //ok

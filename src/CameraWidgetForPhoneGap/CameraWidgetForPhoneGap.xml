@@ -72,5 +72,14 @@
                 <enumerationValue key="gallery">Gallery</enumerationValue>
             </enumerationValues>
         </property>
+        <property key="direction" type="enumeration" defaultValue="back">
+            <caption>Default Camera direction</caption>
+            <category>Behaviour</category>
+            <description></description>
+            <enumerationValues>
+                <enumerationValue key="back">Back</enumerationValue>
+                <enumerationValue key="front">Front</enumerationValue>
+            </enumerationValues>
+        </property>
     </properties>
 </widget>
